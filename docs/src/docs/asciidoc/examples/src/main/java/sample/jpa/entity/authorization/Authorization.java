@@ -13,21 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package sample.jpa;
+package sample.jpa.entity.authorization;
 
 import java.time.Instant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-/**
- * @author Steve Riesenberg
- */
-// tag::class[]
 @Entity
+@Table(name = "`authorization`")
 public class Authorization {
 	@Id
+	@Column
 	private String id;
 	private String registeredClientId;
 	private String principalName;
@@ -69,8 +68,7 @@ public class Authorization {
 	@Column(length = 2000)
 	private String oidcIdTokenClaims;
 
-	// getters and setters
-// end::class[]
+	// @fold:on
 	public String getId() {
 		return id;
 	}
@@ -270,6 +268,5 @@ public class Authorization {
 	public void setOidcIdTokenClaims(String idTokenClaims) {
 		this.oidcIdTokenClaims = idTokenClaims;
 	}
-// tag::class[]
+	// @fold:off
 }
-// end::class[]
